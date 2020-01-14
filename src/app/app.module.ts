@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewContactsComponent } from './view-contacts/view-contacts.component';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		ViewContactsComponent,
-		AddContactsComponent
+		AddContactsComponent,
+		HeaderComponent
 	],
 	imports: [
 		BrowserModule,

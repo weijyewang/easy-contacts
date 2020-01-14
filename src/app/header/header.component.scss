@@ -1,0 +1,25 @@
+.main-container {
+	box-shadow: 0 2px 12px 0 #dfe3eb;
+	padding: 1.15rem;
+	background: #fff;
+	color: #2a2a2a;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.brand {
+	font-size: 1.5rem;
+
+	.app-logo {
+		height: 35px;
+		width: auto;
+	}
+
+	.app-title {
+		font-weight: 400;
+		line-height: 1.25;
+		color: #2a2a2a;
+		white-space: nowrap;
+		padding: 0 7px;
+	}
+}
