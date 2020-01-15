@@ -1,0 +1,13 @@
+.main-container {
+	width: 100%;
+}
+
+.add-contact-button {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+
+	.icon {
+		font-size: 1.35em;
+	}
+}
