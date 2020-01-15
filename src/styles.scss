@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
-
 body {
 	color: #212529;
 	font-weight: 400;
@@ -23,3 +21,6 @@ body {
 .flex-1 {
 	flex: 1
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
