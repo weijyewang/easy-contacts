@@ -1,5 +1,9 @@
 <div class="main-container">
-	<button mat-fab color="primary" class="add-contact-button">
+	<div [hidden]="contacts.length > 0" class="no-contact-msg">
+		<div>Looks like you don't have any contact yet. </div>
+		<div><a class="ec-hyperlink" routerLink="/add-contacts">Add your first contact here.</a></div>
+	</div>
+	<button mat-fab color="primary" class="add-contact-button" (click)="navigateToAddContact()">
 		<i class="fas fa-plus icon"></i>
 	</button>
 </div>

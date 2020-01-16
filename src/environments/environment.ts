@@ -4,7 +4,7 @@
 
 export const environment = {
 	production: false,
-	restApiUrl: 'http://localhost:3000',
+	restApiUrl: 'http://localhost:3000', // Assuming default port is being used to run json server.
 };
 
 /*

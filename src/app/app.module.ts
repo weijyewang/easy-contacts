@@ -9,6 +9,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -23,6 +24,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		MatButtonModule,
+		HttpClientModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
