@@ -1,1 +1,18 @@
-<p>contact-form works!</p>
+<form [formGroup]="form" class="form">
+	<div class="flex-row flex-wrap controls-wrapper">
+		<mat-form-field class="form-control-group flex-1" appearance="outline">
+			<mat-label>First name</mat-label>
+			<input type="text" matInput formControlName="firstName" required>
+		</mat-form-field>
+		<mat-form-field class="form-control-group flex-1" appearance="outline">
+			<mat-label>Last name</mat-label>
+			<input type="text" matInput formControlName="lastName" required>
+		</mat-form-field>
+	</div>
+	<div class="flex-row flex-wrap controls-wrapper">
+		<mat-form-field class="form-control-group flex-1" appearance="outline">
+			<mat-label>Email</mat-label>
+			<input type="text" matInput formControlName="email" required>
+		</mat-form-field>
+	</div>
+</form>
