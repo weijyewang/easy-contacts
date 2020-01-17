@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { ViewContactsComponent } from './view-contacts/view-contacts.component';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
@@ -27,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
-		FormsModule, ReactiveFormsModule,
+		FormsModule, ReactiveFormsModule, MatSnackBarModule,
 		MatButtonModule, MatInputModule, MatFormFieldModule,
 	],
 	providers: [],

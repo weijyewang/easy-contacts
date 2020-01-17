@@ -5,6 +5,27 @@
       "lastName": "Wang",
       "email": "weijye91@live.com",
       "id": 1
+    },
+    {
+      "firstName": "Justin",
+      "lastName": "House",
+      "email": "justin122@gmail.com",
+      "phone": "667732335533",
+      "id": 2
+    },
+    {
+      "firstName": "Takigawa",
+      "lastName": "Seichiro",
+      "email": "takigawaseichiro@hotmail.com",
+      "phone": null,
+      "id": 3
+    },
+    {
+      "firstName": "Phillip",
+      "lastName": "Young",
+      "email": "phiyoung@gmail.com",
+      "phone": null,
+      "id": 4
     }
   ]
 }

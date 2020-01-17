@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
 import { ApiFacadeService } from '../core/api-facade.service';
+import { UtilService } from '../core/util.service';
 
 @Component({
 	selector: 'app-contact-form',
@@ -13,6 +14,7 @@ export class ContactFormComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private apiFacade: ApiFacadeService,
+		private util: UtilService,
 	) { }
 
 	ngOnInit() {
@@ -34,7 +36,7 @@ export class ContactFormComponent implements OnInit {
 		});
 	}
 
-	public addContact(): void {
+	public addContact(formDirective: FormGroupDirective): void {
 		const payload: any = {
 			firstName: this.form.controls.firstName.value,
 			lastName: this.form.controls.lastName.value,
@@ -43,9 +45,10 @@ export class ContactFormComponent implements OnInit {
 		};
 
 		this.apiFacade.httpRequestPost('contacts', payload).subscribe(response => {
+			this.util.showSnackBar('Contact added successfully');
 			// Reset to form to it's initial state.
-			this.createForm();
-			this.form.markAsPristine();
-		});
+			formDirective.resetForm();
+			this.form.reset();
+		}, response => this.util.showSnackBar('Error: failed to add contact.'));
 	}
 }
