@@ -31,4 +31,8 @@ export class ViewContactsComponent implements OnInit {
 	public navigateToAddContact(): void {
 		this.router.navigate(['/add-contacts']);
 	}
+
+	public getInitials(): void {
+		
+	}
 }
