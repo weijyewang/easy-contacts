@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ApiFacadeService } from '../core/api-facade.service';
 
 @Component({
 	selector: 'app-contact-form',
@@ -11,6 +12,7 @@ export class ContactFormComponent implements OnInit {
 
 	constructor(
 		private formBuilder: FormBuilder,
+		private apiFacade: ApiFacadeService,
 	) { }
 
 	ngOnInit() {
@@ -28,7 +30,22 @@ export class ContactFormComponent implements OnInit {
 			firstName: [null, Validators.required],
 			lastName: [null, Validators.required],
 			email: [null, [Validators.required, Validators.email]],
+			phone: [null, ],
 		});
 	}
 
+	public addContact(): void {
+		const payload: any = {
+			firstName: this.form.controls.firstName.value,
+			lastName: this.form.controls.lastName.value,
+			email: this.form.controls.email.value,
+			phone: this.form.controls.phone.value,
+		};
+
+		this.apiFacade.httpRequestPost('contacts', payload).subscribe(response => {
+			// Reset to form to it's initial state.
+			this.createForm();
+			this.form.markAsPristine();
+		});
+	}
 }

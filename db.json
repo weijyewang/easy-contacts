@@ -1,5 +1,10 @@
 {
-	"contacts": [
-		
-	]
+  "contacts": [
+    {
+      "firstName": "Wei-Jye",
+      "lastName": "Wang",
+      "email": "weijye91@live.com",
+      "id": 1
+    }
+  ]
 }

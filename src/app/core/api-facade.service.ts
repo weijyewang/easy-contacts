@@ -22,7 +22,7 @@ export class ApiFacadeService {
 	}
 
 	/**
-	 * Make http request to get data from back-end.
+	 * Make http GET request to get data from back-end.
 	 * @param requestUrl The http request URL right after the base URL. Eg. 'user/profile'.
 	 * @param params Parameters to be passed into the api for filtering purposes.
 	 */
@@ -37,6 +37,23 @@ export class ApiFacadeService {
 
 		return this.http.get(
 			`${BASE_URL}/${requestUrl}`,
+			httpRequestOptions,
+		);
+	}
+
+	/**
+	 * Make http POST request to create a new resoure at back-end.
+	 * @param requestUrl The http request URL right after the base URL. Eg. 'user/profile'.
+	 * @param payload The request payload to be passed into the POST method as body. Put null if no payload is required.
+	 */
+	public httpRequestPost(requestUrl: string, payload: object): Observable<any> {
+		const httpRequestOptions: any = {
+			headers: this.getCommonHeader(),
+		};
+
+		return this.http.post(
+			`${BASE_URL}/${requestUrl}`,
+			payload,
 			httpRequestOptions,
 		);
 	}

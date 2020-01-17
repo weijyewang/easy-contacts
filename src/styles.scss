@@ -17,6 +17,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;	color: #212
 .flex-align-items-center {
 	align-items: center;
 }
+.flex-justify-content-end {
+	justify-content: flex-end;
+}
 .flex-1 {
 	flex: 1
 }
@@ -36,6 +39,39 @@ a.ec-hyperlink:focus {
 
 .form-control-group {
 	font-family: 'Roboto', sans-serif;
-	padding: 10px 0;
-	margin: 10px;
+	margin: 0 10px;
+}
+
+button.ec-button {
+	text-transform: uppercase;
+	outline: none;
+	transition: background-color 350ms ease-out, color 350ms ease-out;
+	border-radius: 4px;
+	color: #006be6;
+	min-width: 120px;
+}
+button.ec-button.primary {
+	color: #fff;
+	background-color: #006be6;
+}
+
+button.ec-button:disabled,
+button.ec-button.primary:disabled {
+	cursor: not-allowed;
+	color: #b1b1b1;
+	background-color: #e7e7e7;
+}
+
+.header {
+	font-size: 1.15em;
+	font-weight: 500;
+	line-height: 1.5rem;
+	margin: 5px 0 7px;
+}
+
+@media(max-width: 575px) {
+	button.ec-button {
+		display: block;
+		width: 100%;
+	}
 }

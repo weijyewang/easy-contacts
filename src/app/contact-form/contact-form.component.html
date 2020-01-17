@@ -1,4 +1,5 @@
 <form [formGroup]="form" class="form">
+	<div class="header">Create a new contact</div>
 	<div class="flex-row flex-wrap controls-wrapper">
 		<mat-form-field class="form-control-group flex-1" appearance="outline">
 			<mat-label>First name</mat-label>
@@ -14,5 +15,14 @@
 			<mat-label>Email</mat-label>
 			<input type="text" matInput formControlName="email" required>
 		</mat-form-field>
+	</div>
+	<div class="flex-row flex-wrap controls-wrapper">
+		<mat-form-field class="form-control-group flex-1" appearance="outline">
+			<mat-label>Phone</mat-label>
+			<input type="text" matInput formControlName="phone">
+		</mat-form-field>
+	</div>
+	<div class="flex-row flex-wrap flex-justify-content-end controls-wrapper buttons-container">
+		<button mat-button class="ec-button primary" [disabled]="form.invalid" (click)="addContact()">Add</button>
 	</div>
 </form>
