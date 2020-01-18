@@ -65,6 +65,31 @@
 	width: 180px;
 }
 
+.search-input-wrapper {
+	margin-bottom: 20px;
+}
+
+.search-control {
+	font-family: "FontAwesome", Roboto,"Helvetica Neue",sans-serif;
+	display: block;
+	width: 100%;
+	padding: .75rem 1.125rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #2a2a2a;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 2px solid #dadfe6;
+	border-radius: .375rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	outline: none;
+}
+.search-control:focus {
+	border: 2px solid #40dc7e;
+	background-color: #fff;
+	box-shadow: none;
+}
+
 @media(max-width: 575px) {
 	.mobile-spacer {
 		display: initial;

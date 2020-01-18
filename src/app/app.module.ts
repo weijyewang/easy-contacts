@@ -16,6 +16,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NullConverterPipe } from './core/null-converter.pipe';
+import { SearchPipe } from './core/search.pipe';
 
 @NgModule({
 	declarations: [
@@ -25,6 +26,7 @@ import { NullConverterPipe } from './core/null-converter.pipe';
 		HeaderComponent,
 		ContactFormComponent,
 		NullConverterPipe,
+		SearchPipe,
 	],
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,

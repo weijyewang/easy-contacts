@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiFacadeService } from '../core/api-facade.service';
 import { EcContact } from '../core/contact.model';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
 	selector: 'app-contacts',
@@ -10,13 +12,18 @@ import { Router } from '@angular/router';
 })
 export class ViewContactsComponent implements OnInit {
 	public contacts: EcContact[] = [];
+	public searchQuery: string;
+	public form: FormGroup;
 
 	constructor(
 		private apiFacade: ApiFacadeService,
 		private router: Router,
+		private formBuilder: FormBuilder,
 	) { }
 
 	ngOnInit() {
+		this.createForm();
+		this.registerEvents();
 		this.loadContactList();
 	}
 
@@ -26,6 +33,21 @@ export class ViewContactsComponent implements OnInit {
 			this.contacts = responseData;
 		}, errorResponse => {
 
+		});
+	}
+
+	private createForm(): void {
+		this.form = this.formBuilder.group({
+			'searchQuery': [null]
+		});
+	}
+
+	private registerEvents(): void {
+		this.form.controls['searchQuery'].valueChanges.pipe(
+			debounceTime(300),
+			distinctUntilChanged(),
+		).subscribe(value => {
+			this.searchQuery = value;
 		});
 	}
 
