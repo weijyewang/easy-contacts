@@ -6,16 +6,16 @@
 	<div class="view-contact-container">
 		<div *ngFor="let contact of contacts;  trackBy: trackByFn;" class="contact-card flex-row flex-wrap">
 			<div class="initials-wrapper"><pre class="initials">{{ getInitials(contact) }}</pre></div>
-			<div class="flex-row flex-align-items-center name">{{ contact.firstName }} {{ contact.lastName }}</div>
-			<div class="flex-1"></div>
+			<div class="flex-row flex-align-items-center name" matTooltip="{{ contact.firstName }} {{ contact.lastName }}" matTooltipClass="ec-tooltip">{{ contact.firstName }} {{ contact.lastName }}</div>
+			<div class="flex-1 mobile-spacer"></div>
 			<div class="sub-info">
 				<div class="flex-1 flex-align-items-center flex-justify-content-center flex-row">
 					<div><i class="fal fa-envelope fw"></i></div>
-					<div class="email-value truncate-text">{{ contact.email | nullConverter }}</div>
+					<div class="email-value truncate-text" matTooltip="{{ contact.email | nullConverter }}" matTooltipClass="ec-tooltip">{{ contact.email | nullConverter }}</div>
 				</div>
 				<div class="flex-1 flex-align-items-center flex-justify-content-center flex-row">
 					<div><i class="fal fa-phone fw"></i></div>
-					<div class="phone-value truncate-text">{{ contact.phone | nullConverter }}</div>
+					<div class="phone-value truncate-text" matTooltip="{{ contact.phone | nullConverter }}" matTooltipClass="ec-tooltip">{{ contact.phone | nullConverter }}</div>
 				</div>
 			</div>
 		</div>

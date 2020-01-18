@@ -41,10 +41,18 @@
 	}
 }
 
+.mobile-spacer {
+	display: none;
+}
+
 .email-value,
 .phone-value,
 .name {
 	padding: 0 15px;
+}
+
+.name {
+	width: 170px;
 }
 
 .sub-info {
@@ -58,10 +66,14 @@
 }
 
 @media(max-width: 575px) {
+	.mobile-spacer {
+		display: initial;
+	}
+
 	.sub-info {
 		flex-direction: column;
 	}
-	
+
 	.email-value,
 	.phone-value {
 		width: 110px;

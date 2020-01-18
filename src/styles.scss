@@ -78,6 +78,10 @@ button.ec-button.primary:disabled {
   text-overflow: ellipsis;
 }
 
+ .mat-tooltip.ec-tooltip {
+    font-size: 12px;
+  }
+
 @media(max-width: 575px) {
 	button.ec-button {
 		display: block;

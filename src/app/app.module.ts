@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppComponent } from './app.component';
 import { ViewContactsComponent } from './view-contacts/view-contacts.component';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
@@ -26,11 +27,8 @@ import { NullConverterPipe } from './core/null-converter.pipe';
 		NullConverterPipe,
 	],
 	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		HttpClientModule,
-		FormsModule, ReactiveFormsModule, MatSnackBarModule,
+		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,
+		FormsModule, ReactiveFormsModule, MatSnackBarModule, MatTooltipModule,
 		MatButtonModule, MatInputModule, MatFormFieldModule,
 	],
 	providers: [],
