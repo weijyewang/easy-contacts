@@ -18,7 +18,7 @@
 }
 
 .contact-card {
-	padding: 15px;
+	padding: 15px 30px 15px;
 	position: relative;
 	transition: background 200ms ease-in-out;
 
@@ -120,6 +120,8 @@
 .menu-list {
 	position: absolute;
 	right: 10px;
+	top: 0;
+	bottom: 0;
 }
 
 @media(max-width: 575px) {
@@ -134,5 +136,11 @@
 	.email-value,
 	.phone-value {
 		width: 110px;
+	}
+}
+
+@media(max-width: 479px) {
+	.sub-info {
+		display: none;
 	}
 }
