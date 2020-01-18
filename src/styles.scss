@@ -78,9 +78,21 @@ button.ec-button.primary:disabled {
   text-overflow: ellipsis;
 }
 
- .mat-tooltip.ec-tooltip {
-    font-size: 12px;
-  }
+.mat-tooltip.ec-tooltip {
+	font-size: 12px;
+}
+
+.spinner-wrapper {
+	width: 100%;
+	min-height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.la-ball-spin-fade-rotating {
+		color: #673ab7;
+	}
+}
 
 @media(max-width: 575px) {
 	button.ec-button {

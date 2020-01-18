@@ -14,6 +14,7 @@ export class ViewContactsComponent implements OnInit {
 	public contacts: EcContact[] = [];
 	public searchQuery: string;
 	public form: FormGroup;
+	public loadingContacts: boolean = false;
 
 	constructor(
 		private apiFacade: ApiFacadeService,
@@ -28,12 +29,13 @@ export class ViewContactsComponent implements OnInit {
 	}
 
 	private loadContactList(): void {
+		this.loadingContacts = true;
+
 		const params = { _sort: 'firstName' };
 		this.apiFacade.httpRequestGet('contacts', params).subscribe(responseData => {
 			this.contacts = responseData;
-		}, errorResponse => {
-
-		});
+			this.loadingContacts = false;
+		}, errorResponse => this.loadingContacts = false);
 	}
 
 	private createForm(): void {

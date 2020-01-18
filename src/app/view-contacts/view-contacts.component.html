@@ -1,5 +1,5 @@
 <div class="main-container">
-	<div [hidden]="contacts.length > 0" class="no-contact-msg">
+	<div [hidden]="contacts.length > 0 || this.loadingContacts" class="no-contact-msg">
 		<div>Looks like you don't have any contact yet. </div>
 		<div><a class="ec-hyperlink" routerLink="/add-contacts">Add your first contact here.</a></div>
 	</div>
@@ -10,6 +10,19 @@
 			</div>
 		</form>
 		<ng-container *ngIf="(contacts |  searchFilter: searchQuery) as result">
+			<!-- Loader/spinner -->
+			<div class="spinner-wrapper" *ngIf="loadingContacts">
+				<div class="la-ball-spin-fade-rotating la-2x">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
 			<div *ngFor="let contact of result; trackBy: trackByFn;" class="contact-card flex-row flex-wrap">
 				<div class="initials-wrapper">
 					<pre class="initials">{{ getInitials(contact) }}</pre>
