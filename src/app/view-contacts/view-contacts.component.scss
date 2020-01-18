@@ -16,3 +16,54 @@
 .no-contact-msg {
 	text-align: center;
 }
+
+.contact-card {
+	padding: 15px;
+}
+
+.initials-wrapper {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	border: 1px solid #949faa;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1.25;
+	background: #b2b5b9;
+	box-shadow: 0 0 3px rgba(0,0,0,.45);
+
+	.initials {
+		color: #fff;
+		font-size: 1.25em;
+		font-family: monospace;
+	}
+}
+
+.email-value,
+.phone-value,
+.name {
+	padding: 0 15px;
+}
+
+.sub-info {
+	font-size: .88em;
+	display: flex;
+}
+
+.email-value,
+.phone-value {
+	width: 180px;
+}
+
+@media(max-width: 575px) {
+	.sub-info {
+		flex-direction: column;
+	}
+	
+	.email-value,
+	.phone-value {
+		width: 110px;
+	}
+}

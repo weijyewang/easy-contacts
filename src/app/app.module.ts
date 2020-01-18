@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NullConverterPipe } from './core/null-converter.pipe';
 
 @NgModule({
 	declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		ViewContactsComponent,
 		AddContactsComponent,
 		HeaderComponent,
-		ContactFormComponent
+		ContactFormComponent,
+		NullConverterPipe,
 	],
 	imports: [
 		BrowserModule,

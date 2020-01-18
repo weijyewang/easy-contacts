@@ -17,6 +17,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;	color: #212
 .flex-align-items-center {
 	align-items: center;
 }
+.flex-justify-content-center {
+	justify-content: center;
+}
 .flex-justify-content-end {
 	justify-content: flex-end;
 }
@@ -67,6 +70,12 @@ button.ec-button.primary:disabled {
 	font-weight: 500;
 	line-height: 1.5rem;
 	margin: 5px 0 7px;
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media(max-width: 575px) {

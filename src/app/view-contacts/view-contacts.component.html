@@ -3,6 +3,23 @@
 		<div>Looks like you don't have any contact yet. </div>
 		<div><a class="ec-hyperlink" routerLink="/add-contacts">Add your first contact here.</a></div>
 	</div>
+	<div class="view-contact-container">
+		<div *ngFor="let contact of contacts;  trackBy: trackByFn;" class="contact-card flex-row flex-wrap">
+			<div class="initials-wrapper"><pre class="initials">{{ getInitials(contact) }}</pre></div>
+			<div class="flex-row flex-align-items-center name">{{ contact.firstName }} {{ contact.lastName }}</div>
+			<div class="flex-1"></div>
+			<div class="sub-info">
+				<div class="flex-1 flex-align-items-center flex-justify-content-center flex-row">
+					<div><i class="fal fa-envelope fw"></i></div>
+					<div class="email-value truncate-text">{{ contact.email | nullConverter }}</div>
+				</div>
+				<div class="flex-1 flex-align-items-center flex-justify-content-center flex-row">
+					<div><i class="fal fa-phone fw"></i></div>
+					<div class="phone-value truncate-text">{{ contact.phone | nullConverter }}</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<button mat-fab color="primary" class="add-contact-button" (click)="navigateToAddContact()">
 		<i class="fas fa-plus icon"></i>
 	</button>
