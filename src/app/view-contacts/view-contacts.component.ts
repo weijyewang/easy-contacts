@@ -65,4 +65,11 @@ export class ViewContactsComponent implements OnInit {
 	public trackByFn(index, item) {
 		return index; // or item.id
 	}
+
+	public toggleFavourite(contact: EcContact): void {
+		contact.favourite = !contact.favourite;
+		this.apiFacade.httpRequestPut(`contacts/${contact.id}`, contact).subscribe(responseData => {
+
+		});
+	}
 }

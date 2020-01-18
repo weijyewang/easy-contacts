@@ -42,6 +42,23 @@ export class ApiFacadeService {
 	}
 
 	/**
+	 * Make http PUT request to create a new resoure at back-end.
+	 * @param requestUrl The http request URL right after the base URL. Eg. 'user/profile'.
+	 * @param payload The request payload to be passed into the PUT method as body. Put null if no payload is required.
+	 */
+	public httpRequestPut(requestUrl: string, payload: object): Observable<any> {
+		const httpRequestOptions: any = {
+			headers: this.getCommonHeader(),
+		};
+
+		return this.http.put(
+			`${BASE_URL}/${requestUrl}`,
+			payload,
+			httpRequestOptions,
+		);
+	}
+
+	/**
 	 * Make http POST request to create a new resoure at back-end.
 	 * @param requestUrl The http request URL right after the base URL. Eg. 'user/profile'.
 	 * @param payload The request payload to be passed into the POST method as body. Put null if no payload is required.

@@ -19,6 +19,33 @@
 
 .contact-card {
 	padding: 15px;
+	position: relative;
+	transition: background 200ms ease-in-out;
+
+	.menu-wrapper .fav-icon {
+		font-size: 1.2em;
+		padding: 7px;
+		display: none;
+		color: #535353;
+		cursor: pointer;
+	}
+
+	.menu-wrapper .fav-icon.selected {
+		color: #ffd700;
+	}
+}
+.contact-card:hover {
+	background: #eee;
+
+	.menu-wrapper .fav-icon {
+		display: initial;
+	}
+	.menu-wrapper .fav-icon:hover {
+		color: #212529;
+	}
+	.menu-wrapper .fav-icon.selected:hover {
+		color: #f7b500;
+	}
 }
 
 .initials-wrapper {
@@ -88,6 +115,11 @@
 	border: 2px solid #40dc7e;
 	background-color: #fff;
 	box-shadow: none;
+}
+
+.menu-list {
+	position: absolute;
+	right: 10px;
 }
 
 @media(max-width: 575px) {

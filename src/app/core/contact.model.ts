@@ -1,7 +1,8 @@
 export interface EcContact {
 	firstName: string;
 	lastName: string;
-	emails?: any[];
-	address?: any[];
-	contactNumbers?: any[];
+	emails?: string;
+	contactNumbers?: string;
+	favourite: boolean;
+	id: number;
 }
