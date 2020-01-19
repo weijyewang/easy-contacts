@@ -38,7 +38,7 @@ import { InfoDialogComponent } from './view-contacts/info-dialog/info-dialog.com
 		MatButtonModule, MatInputModule, MatFormFieldModule, MatDialogModule,
 	],
 	entryComponents: [
-		InfoDialogComponent,,
+		InfoDialogComponent,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
