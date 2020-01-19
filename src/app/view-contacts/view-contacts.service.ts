@@ -4,8 +4,10 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class ViewContactsService {
 	private contactFormEditSavedSource = new Subject<void>();
+	private favouriteToggledSource = new Subject<void>();
 
-	public contactFormEditSavedSource$ = this.contactFormEditSavedSource.asObservable();
+	public contactFormEditSaved$ = this.contactFormEditSavedSource.asObservable();
+	public favouriteToggled$ = this.favouriteToggledSource.asObservable();
 
 	constructor() {
 
@@ -13,5 +15,9 @@ export class ViewContactsService {
 
 	public triggerContactFormEditSavedEvent(): void {
 		this.contactFormEditSavedSource.next();
+	}
+
+	public triggerFavouriteToggledEvent(): void {
+		this.favouriteToggledSource.next();
 	}
 }

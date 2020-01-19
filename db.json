@@ -4,7 +4,7 @@
       "firstName": "Wei-Jye",
       "lastName": "Wang",
       "email": "weijye91@live.com",
-      "favourite": false,
+      "favourite": true,
       "id": 1
     },
     {
@@ -12,7 +12,7 @@
       "lastName": "House",
       "email": "justin122@gmail.com",
       "phone": "667732335533",
-      "favourite": true,
+      "favourite": false,
       "id": 2
     },
     {
@@ -28,7 +28,7 @@
       "lastName": "Young",
       "email": "phiyoung@gmail.com",
       "phone": null,
-      "favourite": false,
+      "favourite": true,
       "id": 4
     }
   ]

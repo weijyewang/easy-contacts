@@ -24,7 +24,11 @@
 				</div>
 			</div>
 			<div class="contact-header">Favourite&nbsp;<span>({{ favouriteContacts.length }})</span></div>
-			<div
+			<app-contact-card
+				*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: true}; trackBy: trackByFn;"
+				[contact]="contact">
+			</app-contact-card>
+			<!-- <div
 				*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: true}; trackBy: trackByFn;"
 				class="contact-card flex-row flex-wrap">
 				<div class="initials-wrapper">
@@ -53,9 +57,9 @@
 						<i class="fas fa-star fav-icon selected"></i>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="contact-header">Contacts&nbsp;<span>({{ contacts.length - favouriteContacts.length }})</span></div>
-			<div
+			<!-- <div
 				*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: false}; trackBy: trackByFn;"
 				class="contact-card flex-row flex-wrap">
 				<div class="initials-wrapper">
@@ -87,7 +91,11 @@
 						<i class="fal fa-pencil edit-icon"></i>
 					</div>
 				</div>
-			</div>
+			</div> -->
+			<app-contact-card
+				*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: false}; trackBy: trackByFn;"
+				[contact]="contact">
+			</app-contact-card>
 		</ng-container>
 	</div>
 	<button mat-fab color="primary" class="add-contact-button" (click)="navigateToAddContact()">
