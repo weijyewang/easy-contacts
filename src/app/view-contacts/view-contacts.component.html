@@ -9,7 +9,7 @@
 				<input type="text" class="search-control" placeholder="&#xf002; Search" formControlName="searchQuery">
 			</div>
 		</form>
-		<ng-container *ngIf="(contacts |  searchFilter: searchQuery) as result">
+		<ng-container *ngIf="(contacts | searchFilter: searchQuery) as result">
 			<!-- Loader/spinner -->
 			<div class="spinner-wrapper" *ngIf="loadingContacts">
 				<div class="la-ball-spin-fade-rotating la-2x">
@@ -23,7 +23,39 @@
 					<div></div>
 				</div>
 			</div>
-			<div *ngFor="let contact of result; trackBy: trackByFn;" class="contact-card flex-row flex-wrap">
+			<div class="contact-header">Favourite&nbsp;<span>({{ favouriteContacts.length }})</span></div>
+			<div
+				*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: true}; trackBy: trackByFn;"
+				class="contact-card flex-row flex-wrap">
+				<div class="initials-wrapper">
+					<pre class="initials">{{ getInitials(contact) }}</pre>
+				</div>
+				<div class="flex-row flex-align-items-center name" matTooltip="{{ contact.firstName }} {{ contact.lastName }}"
+					matTooltipClass="ec-tooltip">{{ contact.firstName }} {{ contact.lastName }}</div>
+				<div class="flex-1 mobile-spacer"></div>
+				<div class="sub-info">
+					<div class="flex-1 flex-align-items-center flex-justify-content-center flex-row">
+						<div><i class="fal fa-envelope fw"></i></div>
+						<div class="email-value truncate-text" matTooltip="{{ contact.email | nullConverter }}"
+							matTooltipClass="ec-tooltip">{{ contact.email | nullConverter }}</div>
+					</div>
+					<div class="flex-1 flex-align-items-center flex-justify-content-center flex-row">
+						<div><i class="fal fa-phone fw"></i></div>
+						<div class="phone-value truncate-text" matTooltip="{{ contact.phone | nullConverter }}"
+							matTooltipClass="ec-tooltip">{{ contact.phone | nullConverter }}</div>
+					</div>
+				</div>
+				<div class="menu-list flex-row flex-align-items-center">
+					<div class="menu-wrapper fav" [hidden]="contact.favourite" (click)="toggleFavourite(contact)"><i
+							class="far fa-star fav-icon"></i></div>
+					<div class="menu-wrapper fav" [hidden]="!contact.favourite" (click)="toggleFavourite(contact)"><i
+							class="fas fa-star fav-icon selected"></i></div>
+				</div>
+			</div>
+			<div class="contact-header">Contacts&nbsp;<span>({{ contacts.length - favouriteContacts.length }})</span></div>
+			<div
+				*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: false}; trackBy: trackByFn;"
+				class="contact-card flex-row flex-wrap">
 				<div class="initials-wrapper">
 					<pre class="initials">{{ getInitials(contact) }}</pre>
 				</div>

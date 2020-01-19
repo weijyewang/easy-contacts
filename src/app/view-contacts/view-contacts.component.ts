@@ -12,9 +12,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ViewContactsComponent implements OnInit {
 	public contacts: EcContact[] = [];
+	public favouriteContacts: EcContact[] = [];
 	public searchQuery: string;
 	public form: FormGroup;
 	public loadingContacts: boolean = false;
+	public loadingFavouriteContacts: boolean = false;
 
 	constructor(
 		private apiFacade: ApiFacadeService,
@@ -26,6 +28,7 @@ export class ViewContactsComponent implements OnInit {
 		this.createForm();
 		this.registerEvents();
 		this.loadContactList();
+		this.loadFavouriteContactList();
 	}
 
 	private loadContactList(): void {
@@ -36,6 +39,19 @@ export class ViewContactsComponent implements OnInit {
 			this.contacts = responseData;
 			this.loadingContacts = false;
 		}, errorResponse => this.loadingContacts = false);
+	}
+
+	private loadFavouriteContactList(): void {
+		this.loadingFavouriteContacts = true;
+
+		const params = {
+			 _sort: 'firstName',
+			favourite: true,
+		};
+		this.apiFacade.httpRequestGet('contacts', params).subscribe(responseData => {
+			this.favouriteContacts = responseData;
+			this.loadingFavouriteContacts = false;
+		}, errorResponse => this.loadingFavouriteContacts = false);
 	}
 
 	private createForm(): void {
@@ -69,7 +85,8 @@ export class ViewContactsComponent implements OnInit {
 	public toggleFavourite(contact: EcContact): void {
 		contact.favourite = !contact.favourite;
 		this.apiFacade.httpRequestPut(`contacts/${contact.id}`, contact).subscribe(responseData => {
-
+			this.loadContactList();
+			this.loadFavouriteContactList();
 		});
 	}
 }

@@ -124,6 +124,18 @@
 	bottom: 0;
 }
 
+.contact-header {
+	letter-spacing: .07272727em;
+	font-family: Roboto,Arial,sans-serif;
+	font-size: .875rem;
+	font-weight: 500;
+	line-height: 1rem;
+	text-transform: uppercase;
+	color: #5f6368;
+	display: flex;
+	padding: 10px 0 10px 10px;
+}
+
 @media(max-width: 575px) {
 	.mobile-spacer {
 		display: initial;

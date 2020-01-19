@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NullConverterPipe } from './core/null-converter.pipe';
 import { SearchPipe } from './core/search.pipe';
+import { CategoryFilterPipe } from './view-contacts/category-filter.pipe';
 
 @NgModule({
 	declarations: [
@@ -26,7 +27,7 @@ import { SearchPipe } from './core/search.pipe';
 		HeaderComponent,
 		ContactFormComponent,
 		NullConverterPipe,
-		SearchPipe,
+		SearchPipe, CategoryFilterPipe,
 	],
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,
