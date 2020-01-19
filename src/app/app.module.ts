@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { ViewContactsComponent } from './view-contacts/view-contacts.component';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NullConverterPipe } from './core/null-converter.pipe';
 import { SearchPipe } from './core/search.pipe';
 import { CategoryFilterPipe } from './view-contacts/category-filter.pipe';
+import { InfoDialogComponent } from './view-contacts/info-dialog/info-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -28,11 +30,15 @@ import { CategoryFilterPipe } from './view-contacts/category-filter.pipe';
 		ContactFormComponent,
 		NullConverterPipe,
 		SearchPipe, CategoryFilterPipe,
+		InfoDialogComponent,
 	],
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,
 		FormsModule, ReactiveFormsModule, MatSnackBarModule, MatTooltipModule,
-		MatButtonModule, MatInputModule, MatFormFieldModule,
+		MatButtonModule, MatInputModule, MatFormFieldModule, MatDialogModule,
+	],
+	entryComponents: [
+		InfoDialogComponent,,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
