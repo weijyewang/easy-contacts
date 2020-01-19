@@ -30,4 +30,13 @@ export class InfoDialogComponent {
 		this.viewContactsService.triggerContactFormEditSavedEvent();
 		this.closeDialog();
 	}
+
+	public getInitials(contactUser: EcContact): string {
+		const initials = contactUser.firstName.charAt(0) + contactUser.lastName.charAt(0)
+		return initials.toUpperCase();
+	}
+
+	public editContact(): void {
+		this.data.editMode = true;
+	}
 }

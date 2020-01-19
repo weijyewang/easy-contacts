@@ -23,6 +23,7 @@ import { InfoDialogComponent } from './view-contacts/info-dialog/info-dialog.com
 import { ViewContactsService } from './view-contacts/view-contacts.service';
 import { ContactCardComponent } from './view-contacts/contact-card/contact-card.component';
 import { NoListingResultsComponent } from './core/no-listing-result.component';
+import { ClickStopPropagation } from './core/click-stop-propagation.directive';
 
 @NgModule({
 	declarations: [
@@ -36,6 +37,7 @@ import { NoListingResultsComponent } from './core/no-listing-result.component';
 		InfoDialogComponent,
 		ContactCardComponent,
 		NoListingResultsComponent,
+		ClickStopPropagation,
 	],
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,

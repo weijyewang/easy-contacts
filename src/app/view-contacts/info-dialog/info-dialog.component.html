@@ -1,3 +1,26 @@
 <div class="main-container">
-	<app-contact-form *ngIf="data.editMode" [editMode]="true" [selectedContact]="data.selectedContact" (onCancel)="closeDialog()" (onEditSaved)="onFormSaved()"></app-contact-form>
+	<div *ngIf="!data.editMode">
+		<div class="info-header flex-align-items-center flex-justify-content-center">
+			<div class="initials-wrapper">
+				<pre class="initials">{{ getInitials(data.selectedContact) }}</pre>
+			</div>
+			<div class="name">{{ data.selectedContact.firstName }}&nbsp;{{ data.selectedContact.lastName }}</div>
+		</div>
+		<div class="info-body">
+			<div class="flex-row flex-align-items-center info-group">
+				<div class="icon-wrapper"><i class="fal fa-envelope fw"></i></div>
+				<div>{{ data.selectedContact.email | nullConverter }}</div>
+			</div>
+			<div class="flex-row flex-align-items-center info-group">
+				<div class="icon-wrapper"><i class="fal fa-phone fw"></i></div>
+				<div>{{ data.selectedContact.phone | nullConverter }}</div>	
+			</div>
+		</div>
+		<div class="flex-row flex-wrap flex-justify-content-end controls-wrapper buttons-container">
+			<button mat-button class="ec-button" (click)="editContact()">Edit</button>
+			<button mat-button class="ec-button primary" (click)="closeDialog()">Close</button>
+		</div>
+	</div>
+	<app-contact-form *ngIf="data.editMode" [editMode]="true" [selectedContact]="data.selectedContact"
+		(onCancel)="closeDialog()" (onEditSaved)="onFormSaved()"></app-contact-form>
 </div>
