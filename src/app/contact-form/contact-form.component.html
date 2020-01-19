@@ -23,6 +23,8 @@
 		</mat-form-field>
 	</div>
 	<div class="flex-row flex-wrap flex-justify-content-end controls-wrapper buttons-container">
-		<button mat-button class="ec-button primary" [disabled]="form.invalid" (click)="addContact(formDirective)">Add</button>
+		<button mat-button class="ec-button" (click)="cancel()">Cancel</button>
+		<button mat-button class="ec-button primary" [disabled]="form.invalid" *ngIf="!editMode" (click)="addContact(formDirective)">Add</button>
+		<button mat-button class="ec-button primary" [disabled]="form.invalid || form.pristine" *ngIf="editMode" (click)="saveEditedContact(formDirective)">Save</button>
 	</div>
 </form>

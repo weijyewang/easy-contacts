@@ -6,6 +6,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import { ViewContactsService } from './view-contacts.service';
 
 @Component({
 	selector: 'app-contacts',
@@ -25,6 +26,7 @@ export class ViewContactsComponent implements OnInit {
 		private router: Router,
 		private formBuilder: FormBuilder,
 		private matDialog: MatDialog,
+		private viewContactsService: ViewContactsService,
 	) { }
 
 	ngOnInit() {
@@ -70,6 +72,11 @@ export class ViewContactsComponent implements OnInit {
 		).subscribe(value => {
 			this.searchQuery = value;
 		});
+
+		this.viewContactsService.contactFormEditSavedSource$.subscribe(() => {
+			this.loadContactList();
+			this.loadFavouriteContactList();
+		});
 	}
 
 	public navigateToAddContact(): void {
@@ -93,9 +100,18 @@ export class ViewContactsComponent implements OnInit {
 		});
 	}
 
-	public triggerDialog(editMode?: boolean): void {
-		const dialogRef = this.matDialog.open(InfoDialogComponent, {
-			data: { editMode: editMode? true: false },
-		});
+	public triggerDialog(editMode: boolean, selectedContact?: EcContact): void {
+		const dialogOptions: any = {
+			panelClass: ['ec-dialog'],
+			maxHeight: '100vh',
+			autoFocus: false,
+			data: {
+				editMode: editMode ? true : false,
+			},
+		};
+		if (selectedContact) {
+			dialogOptions.data.selectedContact = selectedContact;
+		}
+		const dialogRef = this.matDialog.open(InfoDialogComponent, dialogOptions);
 	}
 }

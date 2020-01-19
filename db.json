@@ -16,11 +16,11 @@
       "id": 2
     },
     {
-      "firstName": "Takigawa",
-      "lastName": "Seichiro",
+      "firstName": "Tokugawa",
+      "lastName": "Ichiro",
       "email": "takigawaseichiro@hotmail.com",
-      "phone": null,
-      "favourite": true,
+      "phone": "1234443344666",
+      "favourite": false,
       "id": 3
     },
     {

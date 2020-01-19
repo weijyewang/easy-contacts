@@ -20,6 +20,7 @@ import { NullConverterPipe } from './core/null-converter.pipe';
 import { SearchPipe } from './core/search.pipe';
 import { CategoryFilterPipe } from './view-contacts/category-filter.pipe';
 import { InfoDialogComponent } from './view-contacts/info-dialog/info-dialog.component';
+import { ViewContactsService } from './view-contacts/view-contacts.service';
 
 @NgModule({
 	declarations: [
@@ -40,7 +41,9 @@ import { InfoDialogComponent } from './view-contacts/info-dialog/info-dialog.com
 	entryComponents: [
 		InfoDialogComponent,
 	],
-	providers: [],
+	providers: [
+		ViewContactsService,
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
