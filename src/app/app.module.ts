@@ -22,6 +22,7 @@ import { CategoryFilterPipe } from './view-contacts/category-filter.pipe';
 import { InfoDialogComponent } from './view-contacts/info-dialog/info-dialog.component';
 import { ViewContactsService } from './view-contacts/view-contacts.service';
 import { ContactCardComponent } from './view-contacts/contact-card/contact-card.component';
+import { NoListingResultsComponent } from './core/no-listing-result.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +35,7 @@ import { ContactCardComponent } from './view-contacts/contact-card/contact-card.
 		SearchPipe, CategoryFilterPipe,
 		InfoDialogComponent,
 		ContactCardComponent,
+		NoListingResultsComponent,
 	],
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,
