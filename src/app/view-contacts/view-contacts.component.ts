@@ -4,6 +4,8 @@ import { EcContact } from '../core/contact.model';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @Component({
 	selector: 'app-contacts',
@@ -22,6 +24,7 @@ export class ViewContactsComponent implements OnInit {
 		private apiFacade: ApiFacadeService,
 		private router: Router,
 		private formBuilder: FormBuilder,
+		private matDialog: MatDialog,
 	) { }
 
 	ngOnInit() {
@@ -45,7 +48,7 @@ export class ViewContactsComponent implements OnInit {
 		this.loadingFavouriteContacts = true;
 
 		const params = {
-			 _sort: 'firstName',
+			_sort: 'firstName',
 			favourite: true,
 		};
 		this.apiFacade.httpRequestGet('contacts', params).subscribe(responseData => {
@@ -87,6 +90,12 @@ export class ViewContactsComponent implements OnInit {
 		this.apiFacade.httpRequestPut(`contacts/${contact.id}`, contact).subscribe(responseData => {
 			this.loadContactList();
 			this.loadFavouriteContactList();
+		});
+	}
+
+	public triggerDialog(editMode?: boolean): void {
+		const dialogRef = this.matDialog.open(InfoDialogComponent, {
+			data: { editMode: editMode? true: false },
 		});
 	}
 }

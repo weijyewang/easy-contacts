@@ -46,10 +46,12 @@
 					</div>
 				</div>
 				<div class="menu-list flex-row flex-align-items-center">
-					<div class="menu-wrapper fav" [hidden]="contact.favourite" (click)="toggleFavourite(contact)"><i
-							class="far fa-star fav-icon"></i></div>
-					<div class="menu-wrapper fav" [hidden]="!contact.favourite" (click)="toggleFavourite(contact)"><i
-							class="fas fa-star fav-icon selected"></i></div>
+					<div class="menu-wrapper fav" [hidden]="contact.favourite" (click)="toggleFavourite(contact)">
+						<i class="far fa-star fav-icon"></i>
+					</div>
+					<div class="menu-wrapper fav" [hidden]="!contact.favourite" (click)="toggleFavourite(contact)">
+						<i class="fas fa-star fav-icon selected"></i>
+					</div>
 				</div>
 			</div>
 			<div class="contact-header">Contacts&nbsp;<span>({{ contacts.length - favouriteContacts.length }})</span></div>
@@ -75,10 +77,15 @@
 					</div>
 				</div>
 				<div class="menu-list flex-row flex-align-items-center">
-					<div class="menu-wrapper fav" [hidden]="contact.favourite" (click)="toggleFavourite(contact)"><i
-							class="far fa-star fav-icon"></i></div>
-					<div class="menu-wrapper fav" [hidden]="!contact.favourite" (click)="toggleFavourite(contact)"><i
-							class="fas fa-star fav-icon selected"></i></div>
+					<div class="menu-wrapper fav" [hidden]="contact.favourite" (click)="toggleFavourite(contact)">
+						<i class="far fa-star fav-icon"></i>
+					</div>
+					<div class="menu-wrapper fav" [hidden]="!contact.favourite" (click)="toggleFavourite(contact)">
+						<i class="fas fa-star fav-icon selected"></i>
+					</div>
+					<div class="menu-wrapper edit" (click)="triggerDialog(true)">
+						<i class="fal fa-pencil"></i>
+					</div>
 				</div>
 			</div>
 		</ng-container>
