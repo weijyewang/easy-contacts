@@ -1,5 +1,6 @@
 <form [formGroup]="form" class="form" #formDirective="ngForm">
-	<div class="header">Create a new contact</div>
+	<div class="header" [hidden]="editMode">Create a new contact</div>
+	<div class="header" [hidden]="!editMode">Edit contact</div>
 	<div class="flex-row flex-wrap controls-wrapper">
 		<mat-form-field class="form-control-group flex-1" appearance="outline">
 			<mat-label>First name</mat-label>
