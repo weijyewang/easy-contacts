@@ -1,35 +1,5 @@
 {
   "contacts": [
-    {
-      "firstName": "Wei-Jye",
-      "lastName": "Wang",
-      "email": "weijye91@live.com",
-      "favourite": true,
-      "id": 1
-    },
-    {
-      "firstName": "Justin",
-      "lastName": "House",
-      "email": "justin122@gmail.com",
-      "phone": "667732335533",
-      "favourite": false,
-      "id": 2
-    },
-    {
-      "firstName": "Tokugawa",
-      "lastName": "Ichiro",
-      "email": "takigawaseichiro@hotmail.com",
-      "phone": "1234443344666",
-      "favourite": false,
-      "id": 3
-    },
-    {
-      "firstName": "Phillip",
-      "lastName": "Young",
-      "email": "phiyoung@gmail.com",
-      "phone": null,
-      "favourite": true,
-      "id": 4
-    }
+    
   ]
 }

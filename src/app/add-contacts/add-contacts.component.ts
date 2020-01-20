@@ -18,4 +18,8 @@ export class AddContactsComponent implements OnInit {
 	public onCancel(): void {
 		this.router.navigate(['/view-contacts']);
 	}
+
+	public onNewContactAdded(): void {
+		this.router.navigate(['/view-contacts']);
+	}
 }

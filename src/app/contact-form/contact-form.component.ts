@@ -16,6 +16,7 @@ export class ContactFormComponent implements OnInit {
 	@Input() selectedContact: EcContact;
 	@Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
 	@Output() onEditSaved: EventEmitter<void> = new EventEmitter<void>();
+	@Output() onNewContactAdded: EventEmitter<void> = new EventEmitter<void>();
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -57,6 +58,7 @@ export class ContactFormComponent implements OnInit {
 			lastName: this.form.controls.lastName.value,
 			email: this.form.controls.email.value,
 			phone: this.form.controls.phone.value,
+			favourite: false,
 		};
 
 		this.apiFacade.httpRequestPost('contacts', payload).subscribe(response => {
@@ -64,6 +66,7 @@ export class ContactFormComponent implements OnInit {
 			// Reset to form to it's initial state.
 			formDirective.resetForm();
 			this.form.reset();
+			this.onNewContactAdded.emit();
 		}, response => this.util.showSnackBar('Error: failed to add contact.'));
 	}
 

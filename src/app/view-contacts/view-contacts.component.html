@@ -4,7 +4,7 @@
 		<div><a class="ec-hyperlink" routerLink="/add-contacts">Add your first contact here.</a></div>
 	</div>
 	<div class="view-contact-container">
-		<form [formGroup]="form">
+		<form [formGroup]="form" [hidden]="contacts.length === 0">
 			<div class="search-input-wrapper">
 				<input type="text" class="search-control" placeholder="&#xf002; Search" formControlName="searchQuery">
 			</div>
@@ -23,11 +23,11 @@
 					<div></div>
 				</div>
 			</div>
-			<div *ngIf="!loadingContacts && !loadingFavouriteContacts && result && result.length === 0">
+			<div *ngIf="!loadingContacts && !loadingFavouriteContacts && result && result.length === 0 && contacts.length > 0">
 				<app-no-listing-results></app-no-listing-results>
 			</div>
 			<ng-container *ngIf="result && result.length > 0">
-				<div class="contact-header">Favourite&nbsp;<span>({{ favouriteContacts.length }})</span></div>
+				<div class="contact-header" [hidden]="favouriteContacts.length === 0">Favourite&nbsp;<span>({{ favouriteContacts.length }})</span></div>
 				<app-contact-card
 					*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: true}; trackBy: trackByFn;"
 					[contact]="contact">

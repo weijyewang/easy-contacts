@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { ViewContactsService } from './view-contacts.service';
 
 @Component({
