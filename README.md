@@ -6,7 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 1. Run `npm install` to install all the dependencies.
-2. Run `npm start` or `npm run start` for a dev server and [json server](https://github.com/typicode/json-server). Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. `db.json` located at the project root is the mocked database.
+2. Install [JSON Server](https://github.com/typicode/json-server) CLI by running `npm install -g json-server`.
+3. Run `npm start` or `npm run start` for a dev server and [JSON Server](https://github.com/typicode/json-server). Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. `db.json` located at the project root is the mocked database.
 
 ## Code scaffolding
 
