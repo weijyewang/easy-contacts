@@ -80,6 +80,10 @@ export class ViewContactsComponent implements OnInit {
 			this.loadContactList();
 			this.loadFavouriteContactList();
 		});
+		this.viewContactsService.contactDeleted$.subscribe(() => {
+			this.loadContactList();
+			this.loadFavouriteContactList();
+		});
 	}
 
 	public navigateToAddContact(): void {

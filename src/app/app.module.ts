@@ -24,6 +24,7 @@ import { ViewContactsService } from './view-contacts/view-contacts.service';
 import { ContactCardComponent } from './view-contacts/contact-card/contact-card.component';
 import { NoListingResultsComponent } from './core/no-listing-result.component';
 import { ClickStopPropagation } from './core/click-stop-propagation.directive';
+import { ConfirmationDialogComponent } from './core/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -38,6 +39,7 @@ import { ClickStopPropagation } from './core/click-stop-propagation.directive';
 		ContactCardComponent,
 		NoListingResultsComponent,
 		ClickStopPropagation,
+		ConfirmationDialogComponent,
 	],
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,
@@ -46,6 +48,7 @@ import { ClickStopPropagation } from './core/click-stop-propagation.directive';
 	],
 	entryComponents: [
 		InfoDialogComponent,
+		ConfirmationDialogComponent,
 	],
 	providers: [
 		ViewContactsService,

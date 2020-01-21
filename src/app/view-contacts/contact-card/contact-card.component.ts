@@ -4,6 +4,8 @@ import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiFacadeService } from 'src/app/core/api-facade.service';
 import { ViewContactsService } from '../view-contacts.service';
+import { UtilService } from 'src/app/core/util.service';
+import { ConfirmationDialogComponent } from 'src/app/core/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-contact-card',
@@ -17,6 +19,7 @@ export class ContactCardComponent implements OnInit {
     private matDialog: MatDialog,
     private apiFacade: ApiFacadeService,
     private viewContactsService: ViewContactsService,
+    private util: UtilService,
   ) { }
 
   ngOnInit() {
@@ -51,5 +54,24 @@ export class ContactCardComponent implements OnInit {
       dialogOptions.data.selectedContact = selectedContact;
     }
     const dialogRef = this.matDialog.open(InfoDialogComponent, dialogOptions);
+  }
+
+  public deleteContact(contact: EcContact): void {
+    const dialogOptions: any = {
+      panelClass: ['ec-dialog'],
+      maxHeight: '100vh',
+      autoFocus: false,
+      data: 'Are you sure you want to delete this contact?',
+    };
+   
+    const dialogRef = this.matDialog.open(ConfirmationDialogComponent, dialogOptions);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) { // Call delete request if user clicked confirm.
+        this.apiFacade.httpRequestDelete(`contacts/${this.contact.id}`).subscribe(response => {
+          this.util.showSnackBar(`Contact ${contact.firstName} has been deleted.`);
+          this.viewContactsService.triggerContactDeletedEvent();
+        }, errorResponse => this.util.showSnackBar('Error: failed to delete contact.'));
+      }
+    });
   }
 }

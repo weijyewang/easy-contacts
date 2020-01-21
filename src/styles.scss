@@ -94,6 +94,10 @@ button.ec-button.primary:disabled {
 	}
 }
 
+.danger-color {
+	color: #ff4c6a
+}
+
 @media(max-width: 575px) {
 	button.ec-button {
 		display: block;
