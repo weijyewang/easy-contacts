@@ -1,6 +1,11 @@
 .main-container {
 	width: 100%;
 	padding: 25px 15px 15px;
+	height: calc(100vh - 72px);
+
+	.view-contact-container {
+		height: 100%;;
+	}
 }
 
 .add-contact-button {
@@ -55,4 +60,9 @@
 }
 .contact-header[hidden] {
 	display: none;
+}
+
+virtual-scroller {
+  width: 100%;
+	min-height: 300px;
 }

@@ -3,7 +3,7 @@
 		<div>Looks like you don't have any contact yet. </div>
 		<div><a class="ec-hyperlink" routerLink="/add-contacts">Add your first contact here.</a></div>
 	</div>
-	<div class="view-contact-container">
+	<div class="view-contact-container flex-column">
 		<form [formGroup]="form" [hidden]="contacts.length === 0">
 			<div class="search-input-wrapper">
 				<input type="text" class="search-control" placeholder="&#xf002; Search" formControlName="searchQuery">
@@ -28,15 +28,13 @@
 			</div>
 			<ng-container *ngIf="result && result.length > 0">
 				<div class="contact-header" [hidden]="favouriteContacts.length === 0">Favourite&nbsp;<span>({{ favouriteContacts.length }})</span></div>
-				<app-contact-card
-					*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: true}; trackBy: trackByFn;"
-					[contact]="contact">
+				<app-contact-card *ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: true}; trackBy: trackByFn;" [contact]="contact">
 				</app-contact-card>
 				<div class="contact-header">Contacts&nbsp;<span>({{ contacts.length - favouriteContacts.length }})</span></div>
-				<app-contact-card
-					*ngFor="let contact of result | categoryFilter: {filterProperty: 'favourite', filterValue: false}; trackBy: trackByFn;"
-					[contact]="contact">
-				</app-contact-card>
+				<virtual-scroller #scroll class="flex-1" [items]="result">
+					<app-contact-card *ngFor="let contact of scroll.viewPortItems | categoryFilter: {filterProperty: 'favourite', filterValue: false}; trackBy: trackByFn;" [contact]="contact">
+					</app-contact-card>
+				</virtual-scroller>
 			</ng-container>
 		</ng-container>
 	</div>

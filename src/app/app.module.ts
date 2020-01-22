@@ -25,6 +25,7 @@ import { ContactCardComponent } from './view-contacts/contact-card/contact-card.
 import { NoListingResultsComponent } from './core/no-listing-result.component';
 import { ClickStopPropagation } from './core/click-stop-propagation.directive';
 import { ConfirmationDialogComponent } from './core/confirmation-dialog/confirmation-dialog.component';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,7 @@ import { ConfirmationDialogComponent } from './core/confirmation-dialog/confirma
 	imports: [
 		BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule,
 		FormsModule, ReactiveFormsModule, MatSnackBarModule, MatTooltipModule,
-		MatButtonModule, MatInputModule, MatFormFieldModule, MatDialogModule,
+		MatButtonModule, MatInputModule, MatFormFieldModule, MatDialogModule, VirtualScrollerModule,
 	],
 	entryComponents: [
 		InfoDialogComponent,

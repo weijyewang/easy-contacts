@@ -24,6 +24,7 @@
     "hammerjs": "^2.0.8",
     "load-awesome": "^1.1.0",
     "modern-normalize": "^0.6.0",
+    "ngx-virtual-scroller": "^3.0.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
